@@ -2,10 +2,10 @@
     "build": {
       "builder": "NIXPACKS",
       "buildCommand": "composer install",
-      "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT",
+      "startCommand": "php-fpm -D && nginx -g 'daemon off;'",
       "nixpacks": {
         "plan": {
-          "pkgs": ["php81", "composer", "nginx", "mysql"]
+          "pkgs": ["php81", "composer", "nginx", "mysql", "php81-pdo_mysql", "php81-gd", "php81-mbstring"]
         }
       }
     }
